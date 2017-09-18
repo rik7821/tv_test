@@ -1,2 +1,6 @@
 lenkins deploy
 jenkins start stop restart,there are three ways to start jenkins.one is using jar command ,like java -jar jenkins.jar.the second way is usung service
+三种方式启动jenkins
+1、通过java -jar jenkins.war
+2、通过系统命令添加系统服务之后，如service start jenkins,linux下面，etc/init.d/service/jenkins启动
+3、通过部署完成的后web地址进行启动，如localhost:8080/restart or localhost:8080/start or stop,然后再web页面的提示进行确认
