@@ -1,0 +1,2 @@
+lenkins deploy
+jenkins start stop restart,there are three ways to start jenkins.one is using jar command ,like java -jar jenkins.jar.the second way is usung service
