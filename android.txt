@@ -1,0 +1,9 @@
+1、安卓获取所有app应用的包名以及版本
+
+dumpsys package|grep -E " Package|versionName"|sed "s/=/ /g;s/\[//g;s/\]//g"|awk '{if($1=="Package") p=$;if($1=="versionName") c=$2;print p","c}'>data.csv
+
+2、获取安卓正在运行的服务
+
+adb shell dumpsys -l
+
+3、
