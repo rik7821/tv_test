@@ -1,9 +1,25 @@
 1、安卓获取所有app应用的包名以及版本
 
-dumpsys package|grep -E " Package|versionName"|sed "s/=/ /g;s/\[//g;s/\]//g"|awk '{if($1=="Package") p=$;if($1=="versionName") c=$2;print p","c}'>data.csv
+dumpsys package|grep -E " Package|versionName"|busybox sed "s/=/ /g;s/\[//g;s/\]//g"|busybox awk '{if($1=="Package") p=$2;if($1=="versionName") c=$2;print p","c}'>data.csv
 
 2、获取安卓正在运行的服务
 
 adb shell dumpsys -l
 
-3、
+3、dumpsys window w|grep \/name=|grep mFocusedApp
+dumpsys activity top|grep ACTIVITY
+
+
+获取包名
+
+4、adb disconnect ${IP},解决adb假连接的问题
+
+adb root之后 等待服务起来 需要有几秒的时间连接 脚本里面需要设置一下 sleep的时间 sleep 2
+
+5、查看包名的方法
+
+aapt dump badging+apk（path）
+查看manifest.xml
+log大法 dumpsys acitivity top|grep ACTIVITY
+
+6、

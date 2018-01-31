@@ -1,0 +1,14 @@
+git帮助
+
+git --help 查看git相关命令
+
+git status 查看当前状态
+
+git add 增加文件到本地仓库
+
+git commit -a ,提交修改到本地仓库
+
+git push ,将本地修改同步到remote仓库
+
+git的提交流程，先在本地文件仓库增加文件，git add，然后通过git commit提交，最后通过git push到remote仓库
+
