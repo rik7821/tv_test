@@ -22,4 +22,37 @@ aapt dump badging+apk（path）
 查看manifest.xml
 log大法 dumpsys acitivity top|grep ACTIVITY
 
-6、
+6、android内存相关名词解释
+
+一般是查看PSS，等于USS+按比例的共享库，USS是指进程单独占用内存，一般来说RSS（虚拟内存=USS+未分配的物理内存）》=RSS》=PSS>=USS
+
+常用的内存调优的分析命令，dumpsys meminfo procrank cat /proc/meminfo free showmap vmstat
+
+7、am相关命令
+
+am start -a android.intent.action.CALL -d tel:10086,拨打相关电话通过am命令
+
+am start -a android.intent.action.VIEW -d http://www.baidu.com,打开指定网站使用VIEW
+
+am start -n com.yuanhh.app/.MainActivity 启动制定的APP
+
+am start 启动activity
+
+am startservice 启动服务
+
+am stopservice 停止服务
+
+am broadcast 发送广播
+
+am kill 杀指定后台进程
+
+am kill-all 杀所有后台进程
+
+am force-stop+包名 强杀进程
+
+am restart 重启
+
+am dumpheap +pid 》file,将进程pid的java堆信息输出到文件
+
+am monitor 监控
+
