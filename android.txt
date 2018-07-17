@@ -1,58 +1,61 @@
-1¡¢°²×¿»ñÈ¡ËùÓĞappÓ¦ÓÃµÄ°üÃûÒÔ¼°°æ±¾
+1ã€å®‰å“è·å–æ‰€æœ‰appåº”ç”¨çš„åŒ…åä»¥åŠç‰ˆæœ¬
 
 dumpsys package|grep -E " Package|versionName"|busybox sed "s/=/ /g;s/\[//g;s/\]//g"|busybox awk '{if($1=="Package") p=$2;if($1=="versionName") c=$2;print p","c}'>data.csv
 
-2¡¢»ñÈ¡°²×¿ÕıÔÚÔËĞĞµÄ·şÎñ
+2ã€è·å–å®‰å“æ­£åœ¨è¿è¡Œçš„æœåŠ¡
 
 adb shell dumpsys -l
 
-3¡¢dumpsys window w|grep \/name=|grep mFocusedApp
+3ã€dumpsys window w|grep \/name=|grep mFocusedApp
 dumpsys activity top|grep ACTIVITY
 
 
-»ñÈ¡°üÃû
+è·å–åŒ…å
 
-4¡¢adb disconnect ${IP},½â¾öadb¼ÙÁ¬½ÓµÄÎÊÌâ
+4ã€adb disconnect ${IP},è§£å†³adbå‡è¿æ¥çš„é—®é¢˜
 
-adb rootÖ®ºó µÈ´ı·şÎñÆğÀ´ ĞèÒªÓĞ¼¸ÃëµÄÊ±¼äÁ¬½Ó ½Å±¾ÀïÃæĞèÒªÉèÖÃÒ»ÏÂ sleepµÄÊ±¼ä sleep 2
+adb rootä¹‹å ç­‰å¾…æœåŠ¡èµ·æ¥ éœ€è¦æœ‰å‡ ç§’çš„æ—¶é—´è¿æ¥ è„šæœ¬é‡Œé¢éœ€è¦è®¾ç½®ä¸€ä¸‹ sleepçš„æ—¶é—´ sleep 2
 
-5¡¢²é¿´°üÃûµÄ·½·¨
+5ã€æŸ¥çœ‹åŒ…åçš„æ–¹æ³•
 
-aapt dump badging+apk£¨path£©
-²é¿´manifest.xml
-log´ó·¨ dumpsys acitivity top|grep ACTIVITY
+aapt dump badging+apkï¼ˆpathï¼‰
+æŸ¥çœ‹manifest.xml
+logå¤§æ³• dumpsys acitivity top|grep ACTIVITY
 
-6¡¢androidÄÚ´æÏà¹ØÃû´Ê½âÊÍ
+6ã€androidå†…å­˜ç›¸å…³åè¯è§£é‡Š
 
-Ò»°ãÊÇ²é¿´PSS£¬µÈÓÚUSS+°´±ÈÀıµÄ¹²Ïí¿â£¬USSÊÇÖ¸½ø³Ìµ¥¶ÀÕ¼ÓÃÄÚ´æ£¬Ò»°ãÀ´ËµRSS£¨ĞéÄâÄÚ´æ=USS+Î´·ÖÅäµÄÎïÀíÄÚ´æ£©¡·=RSS¡·=PSS>=USS
+ä¸€èˆ¬æ˜¯æŸ¥çœ‹PSSï¼Œç­‰äºUSS+æŒ‰æ¯”ä¾‹çš„å…±äº«åº“ï¼ŒUSSæ˜¯æŒ‡è¿›ç¨‹å•ç‹¬å ç”¨å†…å­˜ï¼Œä¸€èˆ¬æ¥è¯´RSSï¼ˆè™šæ‹Ÿå†…å­˜=USS+æœªåˆ†é…çš„ç‰©ç†å†…å­˜ï¼‰ã€‹=RSSã€‹=PSS>=USS
 
-³£ÓÃµÄÄÚ´æµ÷ÓÅµÄ·ÖÎöÃüÁî£¬dumpsys meminfo procrank cat /proc/meminfo free showmap vmstat
+å¸¸ç”¨çš„å†…å­˜è°ƒä¼˜çš„åˆ†æå‘½ä»¤ï¼Œdumpsys meminfo procrank cat /proc/meminfo free showmap vmstat
 
-7¡¢amÏà¹ØÃüÁî
+7ã€amç›¸å…³å‘½ä»¤
 
-am start -a android.intent.action.CALL -d tel:10086,²¦´òÏà¹Øµç»°Í¨¹ıamÃüÁî
+am start -a android.intent.action.CALL -d tel:10086,æ‹¨æ‰“ç›¸å…³ç”µè¯é€šè¿‡amå‘½ä»¤
 
-am start -a android.intent.action.VIEW -d http://www.baidu.com,´ò¿ªÖ¸¶¨ÍøÕ¾Ê¹ÓÃVIEW
+am start -a android.intent.action.VIEW -d http://www.baidu.com,æ‰“å¼€æŒ‡å®šç½‘ç«™ä½¿ç”¨VIEW
 
-am start -n com.yuanhh.app/.MainActivity Æô¶¯ÖÆ¶¨µÄAPP
+am start -n com.yuanhh.app/.MainActivity å¯åŠ¨åˆ¶å®šçš„APP
 
-am start Æô¶¯activity
+am start å¯åŠ¨activity
 
-am startservice Æô¶¯·şÎñ
+am startservice å¯åŠ¨æœåŠ¡
 
-am stopservice Í£Ö¹·şÎñ
+am stopservice åœæ­¢æœåŠ¡
 
-am broadcast ·¢ËÍ¹ã²¥
+am broadcast å‘é€å¹¿æ’­
 
-am kill É±Ö¸¶¨ºóÌ¨½ø³Ì
+am kill æ€æŒ‡å®šåå°è¿›ç¨‹
 
-am kill-all É±ËùÓĞºóÌ¨½ø³Ì
+am kill-all æ€æ‰€æœ‰åå°è¿›ç¨‹
 
-am force-stop+°üÃû Ç¿É±½ø³Ì
+am force-stop+åŒ…å å¼ºæ€è¿›ç¨‹
 
-am restart ÖØÆô
+am restart é‡å¯
 
-am dumpheap +pid ¡·file,½«½ø³ÌpidµÄjava¶ÑĞÅÏ¢Êä³öµ½ÎÄ¼ş
+am dumpheap +pid ã€‹file,å°†è¿›ç¨‹pidçš„javaå †ä¿¡æ¯è¾“å‡ºåˆ°æ–‡ä»¶
 
-am monitor ¼à¿Ø
+am monitor ç›‘æ§
 
+8ã€æŸ¥çœ‹åº”ç”¨å¯åŠ¨æ—¶é—´
+
+adb shell am start -W [packageName]/[packageName.launchActivity]
