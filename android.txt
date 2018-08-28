@@ -8,7 +8,10 @@ adb shell dumpsys -l
 
 3、dumpsys window w|grep \/name=|grep mFocusedApp
 dumpsys activity top|grep ACTIVITY
-
+##android通用的方法
+dumpsys windos visible|grep mFocusedApp
+##windows下面
+adb shell dumpsys window w|findstr name=|findstr \/
 
 获取包名
 
@@ -34,7 +37,7 @@ am start -a android.intent.action.CALL -d tel:10086,拨打相关电话通过am�
 
 am start -a android.intent.action.VIEW -d http://www.baidu.com,打开指定网站使用VIEW
 
-am start -n com.yuanhh.app/.MainActivity 启动制定的APP
+am start -n com.yuanhh.app/.MainActivity 启动指定的APP
 
 am start 启动activity
 
@@ -52,7 +55,7 @@ am force-stop+包名 强杀进程
 
 am restart 重启
 
-am dumpheap +pid 》file,将进程pid的java堆信息输出到文件
+am dumpheap +pid 》file,将进程pid的java堆信息输出到文件，注意需要app是debug版本才可以使用
 
 am monitor 监控
 
